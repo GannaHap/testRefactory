@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse Word</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: max-content;
+        margin: 50px auto;
+        border: 1px solid black;
+        padding: 0.5em;
+      }
+
+      .container h2 {
+        text-align: center;
+      }
+
+      .content {
+        width: 900px;
+        display: grid;
+        grid-template-columns: 485px 375px;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      textarea {
+        width: 375px;
+        height: 200px;
+        padding: 0.5em;
+      }
+
+      .box {
+        border: 1px solid black;
+        width: 375px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Reverse Words</h2>
+
+      <div class="content">
+        <form onsubmit="reverseWords(event)">
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <button type="submit">Convert</button>
+        </form>
+        <div class="box">
+          <p class="text"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function reverseWords(event) {
+      event.preventDefault(event);
+
+      const textArea = document.querySelector('textarea').value;
+      const text = document.querySelector('.text');
+      let arrTextArea = textArea.split(' ');
+
+      let newArrTextArea = [];
+      arrTextArea.forEach((word) => {
+        const wordReverse = word.split('').reverse().join('');
+
+        newArrTextArea.push(wordReverse);
+      });
+
+      text.innerHTML = newArrTextArea.join(' ');
+    }
+  </script>
+</html>

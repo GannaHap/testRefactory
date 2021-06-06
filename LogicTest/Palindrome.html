@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: max-content;
+        margin: 80px auto;
+        padding: 0.5em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        border: 1px solid black;
+      }
+
+      .container h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Palindrome</h2>
+
+      <form onsubmit="checkPalindrome(event)">
+        <input type="text" required class="input" />
+        <button type="submit">Check Palindrome</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    function checkPalindrome(event) {
+      event.preventDefault();
+
+      const input = document.querySelector('.input').value;
+      const inputReverse = input.split('').reverse().join('');
+
+      if (input.toLowerCase() === inputReverse.toLowerCase()) {
+        alert('Palindrome');
+      } else {
+        alert('Not Palindrome');
+      }
+    }
+  </script>
+</html>

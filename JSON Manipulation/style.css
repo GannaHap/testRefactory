@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 0 1em;
+}
+
+.container h2 {
+  margin: 30px auto;
+  text-align: center;
+}
+
+/* Select */
+.bar-select {
+  text-align: right;
+  margin-bottom: 50px;
+}
+
+/* Board */
+.board {
+  padding: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 0.4em;
+}
+
+.section-mid {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.card h4 {
+  font-weight: 500;
+}

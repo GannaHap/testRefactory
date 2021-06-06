@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FizzBuzz</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        margin: 50px auto;
+        width: max-content;
+        border: 1px solid black;
+      }
+
+      .container h3 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        width: 600px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-content: space-between;
+        padding: 0.5em;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0.5em;
+      }
+
+      .box {
+        height: 100px;
+        overflow: auto;
+        padding: 0.5em;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>FizzBuzz</h3>
+
+      <div class="content">
+        <form onsubmit="checkFizzBuzz(event)">
+          <label for="input">Input Number</label>
+          <input type="number" id="input" required />
+
+          <button type="submit">Submit</button>
+        </form>
+
+        <div class="box">
+          <h4>Result:</h4>
+          <p class="text"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function checkFizzBuzz(event) {
+      event.preventDefault();
+
+      const input = document.getElementById('input').value;
+      const text = document.querySelector('.text');
+      let rows = [];
+
+      for (i = 1; i <= input; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          rows.push('"FizzBuzz"');
+        } else if (i % 3 === 0) {
+          rows.push('"Fizz"');
+        } else if (i % 5 === 0) {
+          rows.push('"Buzz"');
+        } else {
+          rows.push(`"${i}"`);
+        }
+      }
+
+      text.innerHTML = `[${rows.join(', ')}]`;
+    }
+  </script>
+</html>

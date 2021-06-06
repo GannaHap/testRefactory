@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leap Year</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        border: 1px solid black;
+        margin: 80px auto 0;
+        width: max-content;
+        padding: 0.5em 1em;
+      }
+
+      .container h3 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        width: 800px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: rgb(233, 233, 233);
+        padding: 0.5em;
+      }
+
+      button {
+        margin-top: 20px;
+        background-color: rgb(0, 119, 255);
+        border: none;
+        color: white;
+        padding: 0.2em;
+        cursor: pointer;
+      }
+
+      /* Box */
+      .box {
+        border: 1px solid black;
+        padding: 0.5em;
+        height: 160px;
+        overflow: auto;
+      }
+
+      .box h4 {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Leap Year</h3>
+
+      <div class="content">
+        <form onsubmit="checkLeapYear(event)">
+          <label for="tahun-1">Tahun Pertama</label>
+          <input type="number" id="tahun-1" required />
+          <label for="tahun-2">Tahun Kedua</label>
+          <input type="number" id="tahun-2" required />
+
+          <button type="submit">Check!</button>
+        </form>
+
+        <div class="box">
+          <h4>Result:</h4>
+          <p class="text"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function checkLeapYear(event) {
+      event.preventDefault();
+      const tahun1 = parseInt(document.getElementById('tahun-1').value);
+      const tahun2 = parseInt(document.getElementById('tahun-2').value);
+      const text = document.querySelector('.text');
+
+      let rows = [];
+      for (i = tahun1; i < tahun2; i += 4) {
+        if (i > tahun1) {
+          rows.push(i);
+        }
+      }
+
+      const result = rows.join(', ');
+      text.innerHTML = result;
+
+      if (rows.length === 0) {
+        text.innerHTML = 'Kosong';
+      }
+    }
+  </script>
+</html>
